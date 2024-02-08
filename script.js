@@ -13,19 +13,12 @@ function searchHandler(e) {
 }
 
 function showSuggestions(results, inputVal) {
-	suggestions.innerHTML = "";
-	results.forEach(result => {
-		let li = document.createElement('li');
-        li.textContent = result;
-		suggestions.appendChild(li);
-	});
+	suggestions.innerHTML = results.map(result => `<li>${result}</li>`).join('');
+	suggestions.style.display = 'block';
 }
 
 function useSuggestion(e) {
-	if(e.target.tagName === 'LI') {
-		input.value = e.target.textContent;
-		suggestions.innerHTML = "";
-	}
+	e.target.tagName === 'LI' ? (input.value = e.target.textContent, suggestions.innerHTML = "") : null;
 }
 
 input.addEventListener('keyup', searchHandler);
