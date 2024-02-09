@@ -9,11 +9,11 @@ function search(str) {
 
 function searchHandler(e) {
 	let inputVal = e.target.value;
-	inputVal.length > 0 ? showSuggestions(search(inputVal), inputVal) : suggestions.innerHTML = "";
+	(inputVal.length > 0) ? (showSuggestions(search(inputVal), inputVal)) : (suggestions.innerHTML = "");
 }
 
 function showSuggestions(results, inputVal) {
-	results.length > 0 ? suggestions.classList.add('has-suggestions') : suggestions.classList.remove('has-suggestions');
+	(results.length > 0) ? (suggestions.classList.add('has-suggestions')) : (suggestions.classList.remove('has-suggestions'));
   suggestions.innerHTML = results.map(result => `<li>${result}</li>`).join('');
 	
 }
