@@ -13,8 +13,9 @@ function searchHandler(e) {
 }
 
 function showSuggestions(results, inputVal) {
-	suggestions.innerHTML = results.map(result => `<li>${result}</li>`).join('');
-	suggestions.style.display = 'block';
+	results.length > 0 ? suggestions.classList.add('has-suggestions') : suggestions.classList.remove('has-suggestions');
+  suggestions.innerHTML = results.map(result => `<li>${result}</li>`).join('');
+	
 }
 
 function useSuggestion(e) {
